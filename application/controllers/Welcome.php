@@ -18,33 +18,45 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+
 	public function __construct()
 		{
 			parent::__construct();
 			$this->load->model('UserModel/UserMenusModel');
 			$this->load->model('UserModel/FrontendModel');
 		}
+	// public function index()
+	// {
+	// 	$data['menus'] = $this->UserMenusModel->usermenu();
+	// 	$data['logoimg'] = $this->UserMenusModel->getlogo();
+	// 	$this->load->view('UserView/Header_Footer/welcome_message', $data);
+	// }
+	// public function menudata($id)
+	// 	{
+	// 		$data['menus'] = $this->UserMenusModel->usermenu();
+	// 		$data['logoimg'] = $this->UserMenusModel->getlogo();
+	// 		$this->load->view('UserView/Header_Footer/welcome_message', $data);
+	// 		$menupage['pagedata'] = $this->FrontendModel->getpage_datamenu($id);
+	// 		$this->load->view('UserView/FrontPages', $menupage);
+				
+	// 	}
+	// 	public function submenudata($sid)
+	// 	{
+	// 		$data['menus'] = $this->UserMenusModel->usermenu();
+	// 		$data['logoimg'] = $this->UserMenusModel->getlogo();
+	// 		$this->load->view('UserView/Header_Footer/welcome_message', $data);
+	// 		$submenupage['pagedata'] = $this->FrontendModel->getpage_datasub($sid);
+	// 		$this->load->view('UserView/FrontPages', $submenupage);
+	// 	}
 	public function index()
 	{
 		$data['menus'] = $this->UserMenusModel->usermenu();
 		$data['logoimg'] = $this->UserMenusModel->getlogo();
-		$this->load->view('UserView/Header_Footer/welcome_message', $data);
+		$this->load->view('UserView/Header_Footer/Header',$data);
+		$this->load->view('UserView/Homepage');
+		$this->load->view('UserView/Header_Footer/Footer');
 	}
-	public function menudata($id)
-		{
-			$data['menus'] = $this->UserMenusModel->usermenu();
-			$data['logoimg'] = $this->UserMenusModel->getlogo();
-			$this->load->view('UserView/Header_Footer/welcome_message', $data);
-			$menupage['pagedata'] = $this->FrontendModel->getpage_datamenu($id);
-			$this->load->view('UserView/FrontPages', $menupage);
-				
-		}
-		public function submenudata($sid)
-		{
-			$data['menus'] = $this->UserMenusModel->usermenu();
-			$data['logoimg'] = $this->UserMenusModel->getlogo();
-			$this->load->view('UserView/Header_Footer/welcome_message', $data);
-			$submenupage['pagedata'] = $this->FrontendModel->getpage_datasub($sid);
-			$this->load->view('UserView/FrontPages', $submenupage);
-		}
+
+
 }
