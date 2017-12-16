@@ -25,6 +25,7 @@ class Welcome extends CI_Controller {
 			parent::__construct();
 			$this->load->model('UserModel/UserMenusModel');
 			$this->load->model('UserModel/FrontendModel');
+			$this->load->model('AdminModel/SliderModel');
 		}
 	// public function index()
 	// {
@@ -53,8 +54,9 @@ class Welcome extends CI_Controller {
 	{
 		$data['menus'] = $this->UserMenusModel->usermenu();
 		$data['logoimg'] = $this->UserMenusModel->getlogo();
+		$front_sliders['slids']  = $this->SliderModel->get_slides();
 		$this->load->view('UserView/Header_Footer/Header',$data);
-		$this->load->view('UserView/Homepage');
+		$this->load->view('UserView/Homepage',$front_sliders);
 		$this->load->view('UserView/Header_Footer/Footer');
 	}
 

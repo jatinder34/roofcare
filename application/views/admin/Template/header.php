@@ -189,10 +189,26 @@
             <i class="fa fa-calendar"></i> <span>Menus</span>
           </a>
         </li> -->
-         <li>
-          <a href="<?php echo base_url();?>Admin/SliderController/sliderpage">
-            <i class="fa fa-calendar"></i> <span>Slider Setting</span>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-sliders"></i>
+            <span>Slider Setting</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
+          <ul class="treeview-menu">
+            <li>
+              <a href="<?php echo base_url();?>Admin/SliderController/slidesfetch">
+                <i class="fa fa-circle-o"></i>All Slider
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo base_url();?>Admin/SliderController/sliderpage">
+                <i class="fa fa-circle-o"></i>Add New Slides
+              </a>
+            </li>
+          </ul>
         </li>
         <li>
           <a href="<?php echo base_url();?>Admin/AdminController/UserProfile">

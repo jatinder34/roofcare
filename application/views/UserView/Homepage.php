@@ -1,4 +1,4 @@
-<!-- slider-area start -->
+<!--slider-area start -->
 		<div class="slider-area">
 		
 		
@@ -14,9 +14,25 @@
 			  </ol>
 
 			  <!-- Wrapper for slides -->
-			  <div class="carousel-inner" role="listbox">
-				<div class="item active">
-				  <img src="<?php echo base_url('assets/user');?>/img/slider/1.jpg" alt="Chania">
+			  <div class="carousel-inner" role="listbox" id="mainslids">
+			  	<?php
+			  		foreach ($slids as $allslids) :
+			  			// echo "<pre>";
+			  			// print_r($allslids);
+			  		
+			  	?>
+				<div class="item">
+				  <img src="<?php echo $allslids->slide;?>" alt="Chania">
+				  <div class="carousel-caption">
+					<h3><?php echo $allslids->hading1;?></h3>
+							<h2><?php echo $allslids->hading2;?></h2>
+							<p><?php echo $allslids->peragraph;?> </p>
+							<a class="btn" href="<?php echo $allslids->button_url;?>"><?php echo $allslids->button;?></a>		
+				  </div>
+				</div>
+			<?php endforeach;?>
+				<!-- <div class="item">
+				  <img src="<?php //echo base_url('assets/user');?>/img/slider/2.jpg" alt="Chania">
 				  <div class="carousel-caption">
 					<h3>NATURAL BEAUTY</h3>
 							<h2>WE WILL HELP YOU TO FIX YOUR ROOF.</h2>
@@ -25,23 +41,14 @@
 				  </div>
 				</div>
 				<div class="item">
-				  <img src="<?php echo base_url('assets/user');?>/img/slider/2.jpg" alt="Chania">
+				  <img src="<?php //echo base_url('assets/user');?>/img/slider/3.jpg" alt="Chania">
 				  <div class="carousel-caption">
 					<h3>NATURAL BEAUTY</h3>
 							<h2>WE WILL HELP YOU TO FIX YOUR ROOF.</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel volutpat felis, eu condimentum <br/> massa. Pellentesque mollis eros vel mattis tempor. </p>
 							<a class="btn" href="javascript:void(0);">read more</a>		
 				  </div>
-				</div>
-				<div class="item">
-				  <img src="<?php echo base_url('assets/user');?>/img/slider/3.jpg" alt="Chania">
-				  <div class="carousel-caption">
-					<h3>NATURAL BEAUTY</h3>
-							<h2>WE WILL HELP YOU TO FIX YOUR ROOF.</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel volutpat felis, eu condimentum <br/> massa. Pellentesque mollis eros vel mattis tempor. </p>
-							<a class="btn" href="javascript:void(0);">read more</a>		
-				  </div>
-				</div>
+				</div> -->
 
 				
 				
@@ -322,4 +329,4 @@
 				</div>
 			</div>
 		</div>
-        <!--  blog-area end  -->
+        <!--  blog-area end 

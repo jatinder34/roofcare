@@ -113,7 +113,8 @@
 				else{
 					$("body").removeClass("darkHeader");
 				}
-			});	
+			});
+			$('#mainslids .item:nth-child(1)').addClass('active');	
 		</script>
 	</body>
 </html>

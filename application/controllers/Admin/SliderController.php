@@ -49,5 +49,13 @@
 			$this->SliderModel->Insertsliderdata($slider);
 			$this->sliderpage();
 		}
+
+		public function slidesfetch()
+		{
+			$slids["Allslides"] = $this->SliderModel->get_slides();
+			$this->load->view('admin/Template/header');
+			$this->load->view('admin/Allslides',$slids);
+			$this->load->view('admin/Template/footer');
+		}
 	}
 ?>
