@@ -117,7 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span class="icon-bar"></span>
                 </button>
                 <?php
-                foreach($logoimg->result() as $logo ):
+                foreach($logoimg as $logo ):
                   //print_r($logo);
                 ?>
               <a class="navbar-brand" href="<?php echo base_url();?>"><img class="img img-responsive logo" src="<?php echo $logo->logo_image;?>"></a>

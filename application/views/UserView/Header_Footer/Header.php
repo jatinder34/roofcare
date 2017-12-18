@@ -24,13 +24,18 @@
 					<div class="row">
 						<nav class="navbar ">
 							<div class="container-fluid">
-								<div class="navbar-header">
+								<div class="navbar-header" id="logoimg">
 									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>                        
 									</button>
-									<a class="navbar-brand text-white" href="javascript:(0);">WebSiteName</a>
+									<?php
+					                //foreach($logoimg as $logo ):
+					                  //print_r($logo);
+					                ?>
+									<a class="navbar-brand text-white" href="javascript:(0);"><!--<img src="<?php //echo $logo->logo_image;?>">-->WebSiteName</a>
+								<?php //endforeach;?>
 								</div>
 								<div class="collapse navbar-collapse" id="myNavbar">
 									<ul class="nav text-white navbar-nav navbar-right">

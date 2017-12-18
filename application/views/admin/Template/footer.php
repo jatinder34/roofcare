@@ -249,6 +249,7 @@ jQuery('.cat_ses').css('display','none');
 jQuery('.addcategory').click(function(){
   jQuery('.cat_ses').toggle();
 });
+
 </script>
 </body>
 </html>

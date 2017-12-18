@@ -3,7 +3,7 @@
 	/**
 	* 
 	*/
-	class ProductModel extends CI_Model
+	class PostModel extends CI_Model
 	{
 		function __construct()
 		{
@@ -11,14 +11,14 @@
 		}
 		/*********************Product Section********************************/
 
-		function AddProduct($productdetail)
+		function AddPost($postdetail)
 		{
-			$this->db->insert('product',$productdetail);
+			$this->db->insert('product',$postdetail);
 		}
 
-		function GetProductDetail($limit, $id)
+		function GetPostDetail()
 		{
-			$this->db->limit($limit, $id);
+			$this->db->select("*");
 			$query = $this->db->get('product');
 			if ($query->num_rows() > 0) {
 				foreach($query->result() as $row){
@@ -38,15 +38,27 @@
 		{
 			return $this->db->get('categories')->result();
 		}
-		function getcate_rr($limit, $id)
+		function getcate_rr()
 		{
-			$this->db->limit($limit, $id);
+			$this->db->select("*");
 			return $this->db->get('categories')->result_array();
 		}
 		/******************End Category Section**********************/
-		function product_count()
+		function post_count()
 		{
 			return $this->db->count_all("product");
+		}
+
+		function get_foo_con()
+		{
+			$this->db->select("*");
+			$this->db->from('footersetting');
+			$foo_query = $this->db->get();
+			if ($foo_query->num_rows() > 0) {
+				return $foo_query->result();
+			}else{
+				echo "Error in PostModel line 57";
+			}
 		}
 	}
 ?>

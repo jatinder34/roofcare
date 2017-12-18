@@ -3,7 +3,7 @@
    <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-          All Products
+          All Post
           <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
@@ -19,36 +19,22 @@
             <th><input type="checkbox"></th>
             <th><i class="fa fa-image text-black"></i></th>
             <th>Name</th>
-            <th>Stock</th>
-            <th>Price</th>
+            <th>Slug</th>
             <th>Categories</th>
-            <th><i class="fa fa-star text-black"></i></th>
-            <th>Date</th>
           </tr>
             <?php
-			 		      foreach ($allproducts as $allpro):
-			 		      //echo '<pre>';
-                //print_r($allpro);
-                //echo '</pre>';
+			 		      foreach ($allpost as $allpro):
+			 		      // echo '<pre>';
+            //     print_r($allpro);
 			     	?>
           <tr>
             <td><input type="checkbox"></td>
-            <td><img src="<?php echo base_url('assets/Admin');?>/img/user3-128x128.jpg" class="img-circle" alt="User Image">  </td>
-            <td><?php echo $allpro->product_name;?></td>
-            <?php if($allpro->product_stock){ ?>
-            <td><span class="label label-warning"><?php echo $allpro->product_stock;?> In stock</span></td>
-            <?php }else{ ?> 
+            <td><img src="<?php echo $allpro->post_image;?>" class="img-circle" alt="User Image">  </td>
+            <td><?php echo $allpro->post_name;?></td> 
             <td></td>
-             <?php } ?>
-			  		<td><span class="label label-danger">
-                  $&nbsp;<del><?php echo $allpro->regular_price;?></del>
-                </span>
-                <span class="label label-success">$&nbsp;<?php echo $allpro->product_price;?></span>
-            </td>
-
-			  		<td>
+            <td>
             
-            <?php $assined = json_decode($allpro->product_categories); 
+            <?php $assined = json_decode($allpro->post_categories); 
 
             foreach ($allcate as $alll) {
                
@@ -63,32 +49,27 @@
            
             
             ?></td>
-            <td><i class="fa fa-star text-yellow"></i><i class="fa fa-star text-yellow"></i><i class="fa fa-star text-yellow"></i></td>
-            <td>18-Aug-2017</td>
           </tr>
             <?php endforeach;?>
             <tr>
             <th><input type="checkbox"></th>
             <th><i class="fa fa-image text-black"></i></th>
             <th>Name</th>
-            <th>Stock</th>
-            <th>Price</th>
+            <th>Slug</th>
             <th>Categories</th>
-            <th><i class="fa fa-star text-black"></i></th>
-            <th>Date</th>
           </tr>
         </table>
-        <div class="col-sm-12">
+     <!--    <div class="col-sm-12">
               <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
                 <ul class="pagination">
-                  <?php foreach($links as $link):?>
+                  <?php //foreach($links as $link):?>
                   <li class="paginate_button" id="example2_previous">
-                    <?php echo $link;?>
+                    <?php// echo $link;?>
                   </li>
-                <?php endforeach;?>
+                <?php //;?>
                 </ul>
               </div>
-             </div>
+             </div> -->
             </div>
        </section>
   <!-- right col -->

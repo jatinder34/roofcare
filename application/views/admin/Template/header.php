@@ -128,19 +128,19 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-      <!--   <li class="active treeview">
+        <li class="active treeview">
           <a href="#">
-            <i class="fa fa-shopping-bag"></i> <span>Add Products</span>
+            <i class="fa fa-shopping-bag"></i> <span>Add Posts</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-          <li class="active"><a href="<?php //echo base_url();?>Admin/ProductsController/allProducts"><i class="fa fa-circle-o"></i> Products</a></li>
-            <li><a href="<?php //echo base_url();?>Admin/ProductsController"><i class="fa fa-circle-o"></i> Add New</a></li>
-            <li><a href="<?php //echo base_url();?>Admin/ProductsController/addcategories"><i class="fa fa-circle-o"></i> Categories</a></li>
+          <li class="active"><a href="<?php echo base_url();?>Admin/PostController/allPost"><i class="fa fa-circle-o"></i> Posts</a></li>
+            <li><a href="<?php echo base_url();?>Admin/PostController"><i class="fa fa-circle-o"></i> Add New</a></li>
+            <li><a href="<?php echo base_url();?>Admin/PostController/addcategories"><i class="fa fa-circle-o"></i> Categories</a></li>
           </ul>
-        </li> -->
+        </li>
 
         
         <!-- <li class="treeview">
@@ -215,7 +215,11 @@
             <i class="fa fa-circle-o"></i> <span>Your Profile</span>
           </a>
         </li>
-       
+       <li>
+          <a href="<?php echo base_url();?>Admin/AdminController/footersetting">
+            <i class="fa fa-cogs"></i> <span>Footer Settings</span>
+          </a>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->

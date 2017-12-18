@@ -22,7 +22,7 @@
               <h3 class="box-title">Add New</h3>
             </div>
         <div class="box-body">
-          <form action="<?php echo base_url();?>Admin/ProductsController/addnewcat" method="post">
+          <form action="<?php echo base_url();?>Admin/PostController/addnewcat" method="post">
             <div class="input-group cate_input">
               <input type="text" class="form-control" placeholder="Category Name" name="category">
               <span>You can add custome category here</span>

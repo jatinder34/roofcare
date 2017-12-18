@@ -82,6 +82,23 @@
 			redirect('Admin/AdminController/user_get_function');
 		}
 /*****************End Delete User Information Section*********************/		
+
+		function foote_update_model()
+		{
+			$conid = $this->input->post('con_id');
+			$foo_up = array(
+				'addr' => $this->input->post('addr'), 
+				'mobile' => $this->input->post('mobile'),
+				'email_foo' => $this->input->post('con_email'),
+				'foo_con' => $this->input->post('foo_con')
+			);
+
+			$this->db->update('footersetting',$foo_up);
+			$this->db->where('id',$conid);
+			redirect('Admin/AdminController/footersetting');
+		}
+
+
 	}
 
 ?>

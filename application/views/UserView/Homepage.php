@@ -72,18 +72,24 @@
 		<div class="feature-area pt-80 pb-60">
 			<div class="container">
 				<div class="row">
+					<?php
+						foreach ($service_sec as $service):
+							// echo "<pre>";
+							// print_r($service);
+					?>
 					<div class="col-lg-4 col-md-4 col-sm-4 custom-width">
 						<div class="single-feature mb-20">
 							<div class="feature-image">
-								<img src="<?php echo base_url('assets/user');?>/img/feature/1.jpg" alt="" />
+								<img src="<?php echo $service->post_image;?>" alt="" />
 							</div>
 							<div class="feature-text text-center">
-							<h3>Commercial Roofing </h3>
-							<p>As the world’s largest green and clean egerngy specialist of the printing and typesetting industry. Lorem has been the industry.</p>
+							<h3><?php echo $service->post_name;?></h3>
+							<p><?php echo $service->post_content;?></p>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-4 col-sm-4 custom-width">
+				<?php endforeach;?>
+					<!-- <div class="col-lg-4 col-md-4 col-sm-4 custom-width">
 						<div class="single-feature mb-20">
 							<div class="feature-image">
 								<img src="<?php echo base_url('assets/user');?>/img/feature/2.jpg" alt="" />
@@ -104,7 +110,7 @@
 							<p>As the world’s largest green and clean egerngy specialist of the printing and typesetting industry. Lorem has been the industry.</p>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -112,32 +118,45 @@
 		<!-- purchase-area start -->
 		<div class="purchase-area bg-img-1 ptb-80  bg-opacity">
 			<div class="container">
+				<?php
+					foreach ($saveroof as $sr) :
+						// print_r($sr);
+				?>
 				<div class="purchase-content text-center text-white">
-					<h3>Save The roof!</h3>
-					<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn’t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
+					<h3><?php echo $sr->post_name;?></h3>
+					<p><?php echo $sr->post_content;?></p>
 					<a class="btn btn-blue" href="javascript:void(0);">learn more</a>
 				</div>	
+			<?php endforeach;?>
 			</div>
 		</div>
 		<!-- purchase-area end -->
 		<!--  service-area start  -->
 		<div class="service-area pt-80 pb-60">
 			<div class="container">
+				<?php
+					foreach ($shielding as $shield) :
+				?>
 				<div class="section-heading text-center">
-					<h2>Why Choose Shielding</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+					<h2><?php echo $shield->post_name;?></h2>
+					<p><?php echo $shield->post_content;?></p>
 				</div>
+			<?php endforeach;?>
 				<div class="row">
+					<?php
+						foreach ($shieldingall as $shieldall):
+					?>
 					<div class="col-lg-4 col-md-4 col-sm-6 custom-width mb-20">
 						<div class="service-box text-center">
 							<div class="service-image">
-								<img src="<?php echo base_url('assets/user');?>/img/service/1.png" alt="" />
+								<img src="<?php echo $shieldall->post_image;?>" alt="" />
 							</div>
-							<h3>Roof Repaire</h3>
-							<p>Our services are so awesome of passages of Lerem ipsum available</p>
+							<h3><?php echo $shieldall->post_name;?></h3>
+							<p><?php echo $shieldall->post_content;?></p>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-4 col-sm-6 custom-width mb-20">
+				<?php endforeach;?>
+					<!-- <div class="col-lg-4 col-md-4 col-sm-6 custom-width mb-20">
 						<div class="service-box text-center ">
 							<div class="service-image">
 								<img src="<?php echo base_url('assets/user');?>/img/service/2.png" alt="" />
@@ -181,7 +200,7 @@
                             <h3>Best Price Guarantee</h3>
 							<p>Our services are so awesome of passages of Lerem ipsum available</p>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -189,23 +208,31 @@
         <!--  Project-area start  -->
 		<div class="Project-area pt-80 pb-60">
 			<div class="container">
+				<?php
+					foreach ($projectpost as $project):
+				?>
 				<div class="section-heading text-center">
-					<h2>Our latest Project </h2>
-					<p>Stay up to date with all our latest news and launches. Only the best quality makes it onto our blog!</p>
+					<h2><?php echo $project->post_name;?> </h2>
+					<p><?php echo $project->post_content;?></p>
 				</div>
+			<?php endforeach;?>
 				<div class="row">
+					<?php 
+						foreach ($projectposts as $pp):
+					?>
 					<div class="col-lg-4 col-md-4 col-sm-6 custom-width ">
 						<div class="Project-box mb-20">
 							<div class="Project-image">
-								<a href="javascript:void(0);"><img src="<?php echo base_url('assets/user');?>/img/project/1.jpg" alt="" /></a>
+								<a href="javascript:void(0);"><img src="<?php echo $pp->post_image;?>" alt="" /></a>
 							</div>
 							<div class="Project-content text-center">
-								<h4><a href="javascript:void(0);">Project Name</a></h4>
-								<span>Roofing</span>
+								<h4><a href="javascript:void(0);"><?php echo $pp->post_name;?></a></h4>
+								<span><?php echo $pp->post_content;?></span>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-4 col-sm-6 custom-width ">
+				<?php endforeach;?>
+					<!-- <div class="col-lg-4 col-md-4 col-sm-6 custom-width ">
 						<div class="Project-box mb-20">
 							<div class="Project-image">
 								<a href="javascript:void(0);"><img src="<?php echo base_url('assets/user');?>/img/project/4.jpg" alt=""></a>
@@ -259,7 +286,7 @@
 								<span>Plumbing</span>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -268,16 +295,19 @@
 		<div class="testimonial-area bg-img-2  pt-80 pb-60 bg-opacity">
 			<div class="container">
 				<div class="testimonial-active">
-					
+					<?php
+					foreach($testimonials as $testimonial):
+					?>
 					<div class="single-testimonial-  ">
 						<div class="testimonial-text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu</p>
+							<p><?php echo $testimonial->post_content;?></p>
 						</div>
 						<div class="testimonial-details text-center">
-							<h4>Salim Rana</h4>
-							<span>Project Manager</span>
+							<h4><?php echo $testimonial->post_name;?></h4>
+							<span><?php echo $testimonial->post_custom;?></span>
 						</div>
 					</div>
+				<?php endforeach;?>
 				</div>	
 			</div>
 		</div>
@@ -285,24 +315,32 @@
 	    <!--  blog-area start  -->
 		<div class="blog-area pt-80 pb-60">
 			<div class="container">
+				<?php
+					foreach($ourblog as $blogcon):
+					?>
 				<div class="section-heading text-center">
-					<h2>OUR BLOG</h2>
-					<p>Stay up to date with all our latest news and launches. Only the best quality makes it onto our blog!</p>
+					<h2><?php echo $blogcon->post_name;?></h2>
+					<p><?php echo $blogcon->post_content;?></p>
 				</div>
+			<?php endforeach;?>
 				<div class="row">
+					<?php 
+						foreach ($allpost as $blog) :
+					?>
 					<div class="col-lg-4 col-md-4 col-sm-6 custom-width mb-20">
 						<div class="blog-wrapper">
 							<div class="blog-img">
-								<a href="javascript:void(0);"><img src="<?php echo base_url('assets/user');?>/img/blog/1.jpg" alt="" /></a>
+								<a href="javascript:void(0);"><img src="<?php echo $blog->post_image;?>" alt="" /></a>
 							</div>
 							<div class="blog-content">
-								<h4><a href="blog-details.html">swedish mega project </a></h4>
-								<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature…</p>
+								<h4><a href="blog-details.html"><?php echo $blog->post_name;?></a></h4>
+								<p><?php echo $blog->post_content;?></p>
 								<a href="javascript:void(0);">Read more</a>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-4 col-sm-6 custom-width mb-20">
+				<?php endforeach;?>
+					<!-- <div class="col-lg-4 col-md-4 col-sm-6 custom-width mb-20">
 						<div class="blog-wrapper">
 							<div class="blog-img">
 								<a href="javascript:void(0);"><img src="<?php echo base_url('assets/user');?>/img/blog/2.jpg" alt="" /></a>
@@ -325,7 +363,7 @@
 								<a href="javascript:void(0);">Read more</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

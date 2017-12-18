@@ -5,38 +5,46 @@
 					<div class="row">
 						<div class="col-lg-3 col-md-3  col-sm-6 mb-20">
 							<div class="footer-widget">
+								<?php foreach($footeradd as $addre):
+									//print_r($addre);
+								?>
 								<div class="footer-logo">
 								   <img src="" alt="" />
 								   LOGO
 								</div>
-								<p>Lorem ipsum dolor sit amet, consetur acing elit, sed do eiusmod tempor</p>
+								<p><?php echo $addre->foo_con;?></p>
 								<ul class="widget-contact">
 									<li>
 										<i class="fa fa-map-marker"></i>
-										<span>ABC Raod,
-                                              ABC City</span>
+										<span><?php echo $addre->addr;?></span>
 									</li>
 									<li>
 										<i class="fa fa-phone"></i>
-										<span>123-456-7890                                              </span>
+										<span><?php echo $addre->mobile;?></span>
 									</li>
 									<li>
 										<i class="fa fa-globe"></i>
-										<span>abc@xyz.com</span>
+										<span><?php echo $addre->email_foo;?></span>
 									</li>
 								</ul>
+							<?php endforeach;?>
 						    </div>
 						</div>
 						<div class="col-lg-3 col-md-3 col-sm-6 mb-20">
 							<div class="footer-widget">
 								<h3 class="widget-title">Custom Feature</h3>
 								<ul class="footer-menu">
-									<li><a href="javascript:void(0);">home</a></li>
+									<?php
+					                        foreach ($menus as $menu):
+					                          
+					                    ?>
+									<li><a href="<?php echo $menu->slug;?>"><?php echo $menu->name;?></a></li>
+								<?php endforeach;?><!-- 
 									<li><a href="javascript:void(0);">service</a></li>
 									<li><a href="javascript:void(0);">about us</a></li>
 									<li><a href="javascript:void(0);">portfolio</a></li>
 									<li><a href="javascript:void(0);">blog</a></li>
-									<li><a href="javascript:void(0);">contact us</a></li>
+									<li><a href="javascript:void(0);">contact us</a></li> -->
 								</ul>
 							</div>
 						</div>	
@@ -45,16 +53,20 @@
 								<h3 class="widget-title">latest post</h3>
 								<div class="blog-post">
 									<ul>
+										<?php 
+											foreach ($allpost as $blog) :
+										?>
 										<li>
 											<div class="blog-post-img">
-												<a href="javascript:void(0);"><img src="<?php echo base_url('assets/user');?>/img/footer/1.jpg" alt="" /></a>
+												<a href="javascript:void(0);"><img src="<?php echo $blog->post_image;?>" alt="" /></a>
 											</div>
 											<div class="blog-text">
-												<h4><a href="javascript:void(0);">Swedish Mega Project</a></h4>
+												<h4><a href="javascript:void(0);"><?php echo $blog->post_name;?></a></h4>
 												<span><i class="fa fa-calendar"></i>02 Nov 2016</span>
 											</div>
 										</li>
-										<li>
+									<?php endforeach;?>
+									<!-- 	<li>
 											<div class="blog-post-img">
 												<a href="javascript:void(0);"><img src="<?php echo base_url('assets/user');?>/img/footer/2.jpg" alt="" /></a>
 											</div>
@@ -71,7 +83,7 @@
 												<h4><a href="javascript:void(0);">Cras ornare arcu</a></h4>
 												<span><i class="fa fa-calendar"></i>02 Nov 2016</span>
 											</div>
-										</li>
+										</li> -->
 									</ul>
 								</div>
 							</div>
@@ -102,9 +114,10 @@
 		</footer>
 		<!-- footer-area end -->
 		<!-- all js here -->
-		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		 <script src="<?php echo base_url('assets/user');?>/js/jquery.min.js"></script>
     	<script src="<?php echo base_url('assets/user');?>/js/bootstrap.min.js"></script>
 		<script>
+			$('#mainslids .item:nth-child(1)').addClass('active');
 			$(window).scroll(function() {    
 				var scroll = $(window).scrollTop();    
 				if (scroll >= 50) {
@@ -114,7 +127,8 @@
 					$("body").removeClass("darkHeader");
 				}
 			});
-			$('#mainslids .item:nth-child(1)').addClass('active');	
+				
 		</script>
 	</body>
 </html>
+

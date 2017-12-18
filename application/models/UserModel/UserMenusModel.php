@@ -34,7 +34,7 @@
 			$this->db->from('logo');
 			$logoquery = $this->db->get();
 			if ($logoquery->num_rows() > 0 ) {
-				return $logoquery;
+				return $logoquery->result();
 					//echo "string";
 			}
 			else{

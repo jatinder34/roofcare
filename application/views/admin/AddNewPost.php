@@ -22,38 +22,39 @@
                 <h3 class="box-title">Input Addon</h3>
               </div>
       <div class="box-body">
-        <form action="<?php echo base_url();?>Admin/ProductsController/proimage" method="post">
+        <form action="<?php echo base_url();?>Admin/PostController/proimage" method="post" enctype="multipart/form-data">
                             <div class="input-group">
                               <span class="input-group-addon"></span>
-                              <input type="text" class="form-control" placeholder="Product Name" name="productname">
+                              <input type="text" class="form-control" placeholder="Product Name" name="postname">
                             </div>
                             <br>
                             <div class="input-group">
                               <span class="input-group-addon"></span>
-                              <input type="text" class="form-control" name="productprice" placeholder="Sale Price">
-                            </div>
-                            <br>
-                            <div class="input-group col-md-12">
-                              <span class="input-group-addon"></span>
-                              <input type="text" class="form-control" name="regularprice" placeholder="Regular Price">
-                            </div>
-                            <br>
-
-                            <div class="input-group">
-                              <span class="input-group-addon"></span>
-                              <input type="text" class="form-control" placeholder="Product Stock" name="productstock">
+                              <textarea class="form-control" placeholder="Post Content" name="postcontent"></textarea>
                             </div>
                             <br>
                             <div class="form-group">
                               <div class="btn btn-default btn-file">
                                 <i class="fa fa-paperclip"></i> Attachment
-                                <input type="file" name="productimage" required="required">
+                                <input type="file" name="postimage" >
                               </div>
                               <p class="help-block">Max. 2MB</p>
                             </div>
                             <br>
                             <div class="input-group">
                             <input type="submit" name="submit" value="Submit" class="productsubmitbtn">
+                            </div>
+
+                            <div class="box-body">
+                              
+                              <div class="cus_ses">
+                                <p>
+                                <div class="col-md-3"><label>Custom Field 1</label></div>
+                                  <div class="col-md-9">
+                                  <input type="text" class="form-control" placeholder="Add Custom Fields" name="custom_field">
+                                </div>
+                                </p> 
+                              </div>  
                             </div>
                         </div>
                       </div>
@@ -77,7 +78,7 @@
         </form>
         <hr>
         <div class="box-body">
-          <form action="<?php echo base_url();?>Admin/ProductsController/addnewcate" method="post">
+          <form action="<?php echo base_url();?>Admin/PostController/addnewcate" method="post">
               <p class="addcategory"> 
                 Add New Category
               </p>
@@ -112,6 +113,7 @@ p.addcategory {
     color: #3c8dbc;
     cursor: pointer;
 }
+
 .category_button{
     background: #00c0ef;
     border: 0;

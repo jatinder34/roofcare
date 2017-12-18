@@ -5,7 +5,7 @@
 		{
 			parent::__construct();
 			$this->load->library('session');
-			$this->load->model('AdminModel/ProductModel');
+			$this->load->model('AdminModel/PostModel');
 			$this->load->model('AdminModel/RegistrationModel');
 			$this->load->model('AdminModel/LoginModel');
 			$this->load->helper('date');
@@ -54,9 +54,18 @@
 			$this->load->view('admin/Template/footer');
 		}
 
+		function footersetting()
+		{
+			$footer_con['footeradd'] = $this->PostModel->get_foo_con();
+			$this->load->view('admin/Template/header');
+			$this->load->view('admin/FooterSetting',$footer_con);
+			$this->load->view('admin/Template/footer');
+		}
 
-
-
+		function footer_update()
+		{
+			$this->RegistrationModel->foote_update_model();
+		}
 
 
 

@@ -29,6 +29,18 @@
 			}else{
 				echo "Page Not Found";
 			}
+		}
+
+
+		public function footer_get()
+		{
+			$this->db->select("*");
+			$this->db->from('footersetting');
+			$this->db->limit('1');
+			$queryfooter = $this->db->get();
+			if ($queryfooter->num_rows() > 0) {
+				return $queryfooter->result();
+			}
 		} 
 	}
 ?>
