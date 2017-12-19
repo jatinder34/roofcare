@@ -62,7 +62,7 @@
 											</div>
 											<div class="blog-text">
 												<h4><a href="javascript:void(0);"><?php echo $blog->post_name;?></a></h4>
-												<span><i class="fa fa-calendar"></i>02 Nov 2016</span>
+												<span><i class="fa fa-calendar"></i><?php echo $blog->post_date;?></span>
 											</div>
 										</li>
 									<?php endforeach;?>

@@ -22,14 +22,16 @@
 			$this->load->view('admin/Template/footer');
 		}
 
-		/***************ADD PRODUCT FUNCTION****************/
+/***************ADD PRODUCT FUNCTION****************/
 		function postfunction($image_name)
 		{
 			
 			$postdetail = array(
 				'post_name' => $this->input->post('postname'),
 				'post_content' => $this->input->post('postcontent'),
+				'postslug' => str_replace(" ", "-", strtolower($this->input->post('postname'))),
 				'post_image'=> $image_name,
+				'post_date' => $this->input->post('postdate'),
 				'post_custom' => $this->input->post('custom_field'),
 				);
 
@@ -77,7 +79,7 @@
 			//print_r($productdata);
 			//echo "</pre>";
 		}
-		/*******************Product fetch on Product view**************************/
+/*******************Product fetch on Product view**************************/
 		function allPost()
 		{
 			// $config = array();
@@ -110,8 +112,8 @@
 			$this->load->view('Admin/Post',$postdata);
 			$this->load->view('admin/Template/footer');
 		}
-		/*****************End Product Fetch **************************/
-		/******************Category section ************************/
+/*****************End Product Fetch **************************/
+/******************Category section ************************/
 		function addcategories()
 		{
 			$categet['allcate'] = $this->PostModel->getcate();
@@ -137,6 +139,86 @@
 			$this->PostModel->addcatmodelfunction($cate_name);
 			$this->index();
 		}
-		/******************End Category section***************************/
+/******************End Category section***************************/
+		
+
+/*****************Post Update Section**********************/
+		function get_updateppost($id)
+		{
+			$updatedata["updata"] = $this->PostModel->get_update_data($id);
+			$updatedata['allcate'] = $this->PostModel->getcate();
+			$this->load->view('admin/Template/header');
+			$this->load->view('admin/UpdatePost',$updatedata);
+			$this->load->view('admin/Template/footer');
+		}
+
+		function uppostdata($upimage_name)
+		{
+
+			$upid = $this->input->post('uppostid');
+			$updatepost = array(
+				'post_name' => $this->input->post('uppostname'),
+				'post_content' => $this->input->post('uppostcontent'),
+				'post_date' => $this->input->post('uppostdate'), 
+				'postslug' => str_replace(" ", "-", strtolower($this->input->post('uppostname'))),
+				'post_custom' => $this->input->post('upcustom_field'),
+				'post_image' => $upimage_name,
+			);
+
+			$this->PostModel->updatepostdata($updatepost, $upid);
+			$this->get_updateppost($upid);
+		}
+
+		function image_update()
+		{
+			$config = [
+				'upload_path' => './post-images/',
+				'allowed_types' => 'gif|jpg|jpeg|png',
+				'overwrite' => TRUE,
+				'max-size' => 2048,
+			];
+			$this->load->library('upload',$config);
+			if (!$this->upload->do_upload('uppostimage')) {
+				 $data = $this->upload->data();
+				 $error = array('error' => $this->upload->display_errors()); 
+           		 $upimage_name = $this->input->post('upposturl');
+       			 $this->uppostdata($upimage_name);
+			}
+			else{
+				//echo "hello";
+				$data = $this->upload->data(); 
+           		// echo "<pre>";
+           		// print_r($data);
+           		$upimage_name = base_url("post-images/" . $data['file_name']);
+           		$this->uppostdata($upimage_name);
+           		 
+			}
+		}
+
+/*****************End Post Update Section**********************/
+
+
+/**********************Delete Post Section***************************/
+			function deletepost($id)
+			{
+				$this->PostModel->postdelete($id);
+			}
+
+
+
+
+
+
+
+
+/**********************End Delete Post Section***************************/
+
+
+
+
+
+
 	}
+
+
 ?>

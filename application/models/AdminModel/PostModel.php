@@ -60,5 +60,35 @@
 				echo "Error in PostModel line 57";
 			}
 		}
+
+
+		function get_update_data($id)
+		{
+			$this->db->select('*');
+			$this->db->from('product');
+			$this->db->where('id',$id);
+			$upquey = $this->db->get();
+			if ($upquey->num_rows() == 1) {
+				return $upquey->result();
+			}else{
+				return false;
+			}
+		}
+
+
+		function updatepostdata($updatepost,$upid)
+		{
+			$this->db->where('id',$upid);
+			$this->db->update('product',$updatepost);
+		}
+
+
+
+		function postdelete($id)
+		{
+			$this->db->where('id',$id);
+			$this->db->delete('product');
+			redirect('Admin/PostController/allpost');
+		}
 	}
 ?>

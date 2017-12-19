@@ -22,24 +22,32 @@
                 <h3 class="box-title">Input Addon</h3>
               </div>
       <div class="box-body">
-        <form action="<?php echo base_url();?>Admin/PostController/proimage" method="post" enctype="multipart/form-data">
+
+        <?php
+          foreach ($updata as $data) {
+            //print_r($data);
+          }
+        ?>
+        <form action="<?php echo base_url();?>Admin/PostController/image_update" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="uppostid" value="<?php echo $data->id;?>">
                             <div class="input-group">
                               <span class="input-group-addon"></span>
-                              <input type="text" class="form-control" placeholder="Product Name" name="postname">
+                              <input type="text" class="form-control" placeholder="Product Name" name="uppostname" value="<?php echo $data->post_name;?>">
                             </div>
                             <br>
-                              <input type="hidden" class="form-control" value="<?php echo date('d M Y');?>" name="postdate">
+                              <input type="hidden" class="form-control" value="<?php echo date('d M Y');?>" name="uppostdate">
                            
                             <br>
                             <div class="input-group">
                               <span class="input-group-addon"></span>
-                              <textarea class="form-control" placeholder="Post Content" name="postcontent"></textarea>
+                              <textarea class="form-control" placeholder="Post Content" name="uppostcontent"><?php echo $data->post_content;?></textarea>
                             </div>
                             <br>
                             <div class="form-group">
                               <div class="btn btn-default btn-file">
                                 <i class="fa fa-paperclip"></i> Attachment
-                                <input type="file" name="postimage" >
+                                <input type="file" name="uppostimage" >
+                                <input type="hidden" name="upposturl" value="<?php echo $data->post_image;?>">
                               </div>
                               <p class="help-block">Max. 2MB</p>
                             </div>
@@ -54,7 +62,7 @@
                                 <p>
                                 <div class="col-md-3"><label>Custom Field 1</label></div>
                                   <div class="col-md-9">
-                                  <input type="text" class="form-control" placeholder="Add Custom Fields" name="custom_field">
+                                  <input type="text" class="form-control" placeholder="Add Custom Fields" name="upcustom_field" value="<?php echo $data->post_custom;?>">
                                 </div>
                                 </p> 
                               </div>  
@@ -71,7 +79,7 @@
                             <div class="form-group">
                             <?php foreach($allcate as $ac):?>
                               <label>
-                                <input type="checkbox" value="<?php echo $ac->id; ?>" class="flat-red" name="cate[]">
+                                <input type="checkbox" value="<?php echo $ac->id; ?>" class="flat-red" name="upcate[]">
                                 <?php echo $ac->cat_name?>
                               </label>
                               <br>

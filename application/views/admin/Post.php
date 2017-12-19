@@ -21,6 +21,8 @@
             <th>Name</th>
             <th>Slug</th>
             <th>Categories</th>
+            <th>Date</th>
+            <th>Update/Delete</th>
           </tr>
             <?php
 			 		      foreach ($allpost as $allpro):
@@ -30,8 +32,12 @@
           <tr>
             <td><input type="checkbox"></td>
             <td><img src="<?php echo $allpro->post_image;?>" class="img-circle" alt="User Image">  </td>
-            <td><?php echo $allpro->post_name;?></td> 
-            <td></td>
+            <td class="name">
+              <?php echo $allpro->post_name;?>
+              <br>
+              <a class="updatelink" href="<?php echo base_url();?>Admin/PostController/get_updateppost/<?php echo $allpro->id;?>" style="display: none;">Edit</a>&nbsp;&nbsp;<a class="updatelink" href="<?php echo base_url();?>Admin/PostController/deletepost/<?php echo $allpro->id;?>" style="display: none;">Delete</a>
+            </td> 
+            <td><?php echo $allpro->postslug;?></td>
             <td>
             
             <?php $assined = json_decode($allpro->post_categories); 
@@ -49,6 +55,8 @@
            
             
             ?></td>
+            <td><?php echo $allpro->post_date;?></td>
+            <td></td>
           </tr>
             <?php endforeach;?>
             <tr>
@@ -57,6 +65,8 @@
             <th>Name</th>
             <th>Slug</th>
             <th>Categories</th>
+            <th>Date</th>
+            <th>Update/Delete</th>
           </tr>
         </table>
      <!--    <div class="col-sm-12">

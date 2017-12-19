@@ -249,7 +249,12 @@ jQuery('.cat_ses').css('display','none');
 jQuery('.addcategory').click(function(){
   jQuery('.cat_ses').toggle();
 });
-
+jQuery(".name").mouseover(function(){
+  jQuery(this).children('a').show();
+});
+jQuery('.name').mouseleave(function(){
+  jQuery(this).children('a').hide();
+});
 </script>
 </body>
 </html>
